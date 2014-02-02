@@ -1,4 +1,4 @@
-from wtforms import Form, TextField, TextAreaField, PasswordField, validators
+from wtforms import Form, TextField, TextAreaField, PasswordField, validators, RadioField
 
 class LoginForm(Form):
     email = TextField("Email", [validators.Required(), validators.Email()])
@@ -7,4 +7,4 @@ class LoginForm(Form):
 class NewPostForm(Form):
     title = TextField("title", [validators.Required()])
     location = TextField("location", [validators.Required()])
-    # urgency = RadioField("urgency", [validators.Required()])
+    urgency = RadioField("urgency", [validators.Required()])

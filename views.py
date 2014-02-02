@@ -47,8 +47,6 @@ def register():
     role = request.form.get("role")
     if email and password and role:
         user = model.register(email, password, int(role))
-        # user = User.query.filter_by(email=email).first()
-        print "****************************user", user.is_active()
         login_user(user)
 
         
@@ -72,16 +70,19 @@ def new_post():
 ############################################################    POST    ######
 def create_post():
     form = forms.NewPostForm(request.form)
-    if not form.validate():
+    title = request.form.get("title")
+    location = request.form.get("location")
+    if title and location:
+        post = Post(title=form.title.data, location=form.location.data, urgency=form.urgency.data)
+        current_user.posts.append(post) 
+        model.session.commit()
+        model.session.refresh(post)
+
+        return redirect(url_for("index"))
+
+    else:
         flash("Error, all fields are required")
         return render_template("new_post.html")
-
-    post = Post(title=form.title.data, location=form.location.data, urgency=form.urgency.data)
-    current_user.posts.append(post) 
-    model.session.commit()
-    model.session.refresh(post)
-
-    return redirect(url_for("index"))
 
 @app.route("/login")
 def login():
