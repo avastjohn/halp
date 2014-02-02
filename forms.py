@@ -6,4 +6,5 @@ class LoginForm(Form):
 
 class NewPostForm(Form):
     title = TextField("title", [validators.Required()])
-    body = TextAreaField("body", [validators.Required()])
+    location = TextField("location", [validators.Required()])
+    # urgency = RadioField("urgency", [validators.Required()])

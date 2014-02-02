@@ -44,9 +44,9 @@ class Post(Base):
     
     id = Column(Integer, primary_key=True)
     title = Column(String(64), nullable=False)
-    body = Column(Text, nullable=False)
+    location = Column(String(64), nullable=False)
+    urgency = Column(Integer, nullable=False)
     created_at = Column(DateTime, nullable=False, default=datetime.now)
-    posted_at = Column(DateTime, nullable=True, default=None)
     user_id = Column(Integer, ForeignKey("users.id"))
 
     user = relationship("User")
@@ -64,7 +64,7 @@ def create_tables():
     u = User(email="test@test.com", password="unicorn", role=1)
     u.set_password("unicorn")
     session.add(u)
-    p = Post(title="This is a test post", body="This is the body of a test post.")
+    p = Post(title="This is a test post", location="In your butt", urgency=0)
     u.posts.append(p)
     session.commit()
 

@@ -38,7 +38,7 @@ Markdown(app)
 @app.route("/register")
 def registration():
     return render_template("register.html")
-
+############################################################    REGISTER    ######
 @app.route("/register", methods=["POST"])
 def register():
     error = None
@@ -69,13 +69,14 @@ def new_post():
 
 @app.route("/post/new", methods=["POST"])
 @login_required
+############################################################    POST    ######
 def create_post():
     form = forms.NewPostForm(request.form)
     if not form.validate():
         flash("Error, all fields are required")
         return render_template("new_post.html")
 
-    post = Post(title=form.title.data, body=form.body.data)
+    post = Post(title=form.title.data, location=form.location.data, urgency=form.urgency.data)
     current_user.posts.append(post) 
     model.session.commit()
     model.session.refresh(post)
@@ -91,25 +92,6 @@ def logout():
     session.clear()
     logout_user()
     return redirect(url_for("index"))
-
-# @app.route("/login", methods=["POST"])
-# def authenticate():
-#     form = forms.LoginForm(request.form)
-#     if not form.validate():
-#         flash("Incorrect username or password") 
-#         return render_template("login.html")
-
-#     email = form.email.data
-#     password = form.password.data
-
-#     user = User.query.filter_by(email=email).first()
-
-#     if not user or not user.authenticate(password):
-#         flash("Incorrect username or password") 
-#         return render_template("login.html")
-
-#     login_user(user)
-#     return redirect(request.args.get("next", url_for("index")))
 
 
 if __name__ == "__main__":
