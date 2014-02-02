@@ -24,6 +24,7 @@ class User(Base, UserMixin):
     email = Column(String(64), nullable=False)
     password = Column(String(64), nullable=False)
     salt = Column(String(64), nullable=False)
+    role = Column(Integer, nullable=False)
 
     posts = relationship("Post", uselist=True)
 
@@ -35,6 +36,8 @@ class User(Base, UserMixin):
     def authenticate(self, password):
         password = password.encode("utf-8")
         return bcrypt.hashpw(password, self.salt.encode("utf-8")) == self.password
+
+
 
 class Post(Base):
     __tablename__ = "posts"
@@ -48,10 +51,15 @@ class Post(Base):
 
     user = relationship("User")
 
+def register(email, password, role):
+    user = User(email=email, password=password, role=role)
+    user.set_password(password)
+    session.add(user)
+    session.commit()
 
 def create_tables():
     Base.metadata.create_all(engine)
-    u = User(email="test@test.com")
+    u = User(email="test@test.com", password="unicorn", role=1)
     u.set_password("unicorn")
     session.add(u)
     p = Post(title="This is a test post", body="This is the body of a test post.")
