@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block body %}
+{% if posts %}
 {% for post in posts %}
 <div class="post">
     <h2>{{post.title}}</h2>
 </div>
+{% endfor %}
 {% else %}
 No posts here!
+{% endif %}
 <a href="{{url_for('new_post')}}">New post</a>
-{% endfor %}
 {% endblock %}

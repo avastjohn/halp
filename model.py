@@ -8,7 +8,7 @@ from sqlalchemy import Column, Integer, String, DateTime, Text
 
 from sqlalchemy.orm import sessionmaker, scoped_session, relationship, backref
 
-from flask.ext.login import UserMixin
+from flask.ext.login import UserMixin, login_user
 
 engine = create_engine(config.DB_URI, echo=False) 
 session = scoped_session(sessionmaker(bind=engine,
@@ -52,10 +52,11 @@ class Post(Base):
     user = relationship("User")
 
 def register(email, password, role):
-    user = User(email=email, password=password, role=role)
+    user = User(email=email, password=password, role=role, salt="random")
     user.set_password(password)
     session.add(user)
     session.commit()
+    login_user(user)
 
 def create_tables():
     Base.metadata.create_all(engine)

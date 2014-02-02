@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request, g, session, url_for, flash
 from model import User, Post
-from flask.ext.login import LoginManager, login_required, login_user, current_user
+from flask.ext.login import LoginManager, login_required, login_user, current_user, logout_user
 from flaskext.markdown import Markdown
 import config
 import forms
@@ -43,11 +43,11 @@ def register():
     role = request.form.get("role")
     if email and password and role:
         user = model.register(email, password, int(role))
-        user = User.query.filter_by(email=email).first()
-        login_user(user)
+        print "****************************user", user
+        
         return redirect(url_for("index"))
     else:
-        return render_template("register.html", error="** All Fields Required **")
+        return render_template("registration.html", error="** All Fields Required **")
 
 @app.route("/")
 def index():
@@ -70,7 +70,6 @@ def create_post():
 
     post = Post(title=form.title.data, body=form.body.data)
     current_user.posts.append(post) 
-    
     model.session.commit()
     model.session.refresh(post)
 
@@ -79,6 +78,12 @@ def create_post():
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    logout_user()
+    return redirect(url_for("index"))
 
 # @app.route("/login", methods=["POST"])
 # def authenticate():
