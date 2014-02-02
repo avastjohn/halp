@@ -14,6 +14,10 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+
 @app.route("/login", methods=["POST"])
 def authenticate():
     form = forms.LoginForm(request.form)
@@ -31,7 +35,7 @@ def authenticate():
 # Adding markdown capability to the app
 Markdown(app)
 
-@app.route("/register", methods=["GET"])
+@app.route("/register")
 def registration():
     return render_template("register.html")
 
@@ -43,7 +47,10 @@ def register():
     role = request.form.get("role")
     if email and password and role:
         user = model.register(email, password, int(role))
-        print "****************************user", user
+        # user = User.query.filter_by(email=email).first()
+        print "****************************user", user.is_active()
+        login_user(user)
+
         
         return redirect(url_for("index"))
     else:

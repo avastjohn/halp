@@ -56,7 +56,8 @@ def register(email, password, role):
     user.set_password(password)
     session.add(user)
     session.commit()
-    login_user(user)
+    # login_user(user)
+    return user
 
 def create_tables():
     Base.metadata.create_all(engine)
