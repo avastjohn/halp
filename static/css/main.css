@@ -1,0 +1,38 @@
+body {
+    font-family: sans-serif;
+}
+.navbar {
+    height: 70px;
+    background-color: #FF0000;
+    margin: -8px;
+    margin-top: -16px;
+}
+li {
+    float: left;
+    margin-top: 27px;
+    margin-right: 50px;
+}
+.nav-link{
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+}
+h2 {
+    font-size: 20px;
+}
+p {
+    font-size: 12px;
+}
+.post {
+    height: 100px;
+    width: 600px;
+    background: linear-gradient(to bottom, #00cc00, #269926);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+.delete {
+    float: right;
+}
