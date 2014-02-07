@@ -29,6 +29,9 @@ h2 {
 p {
     font-size: 12px;
 }
+#posts {
+    margin-top: 50px;
+}
 .post {
     height: 100px;
     width: 600px;
@@ -39,6 +42,24 @@ p {
     padding-top: 10px;
     padding-left: 30px;
 }
-.delete {
-    float: right;
+.time {
+    width: 200px;
+    float: left;
 }
+.delete-button {
+    float: right;
+    margin-right: 11px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #FF6561;
+    padding: 8px;
+}
+
+
+
+
+
+
+
