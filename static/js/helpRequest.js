@@ -23,6 +23,13 @@ context.fillText("HALP!", 50, 100);
 
 $(".delete-button").click(function() {
     $( this ).parent().slideUp();
+
+    // use this info as a guide
+
+    // $.getJSON("/index", function(data) {
+    //     newLevel = new Level(data.level_map, data.level_petStart, data.level_treatPos);
+    //     pet.updateLevel(newLevel);
+    });
 });
 
 var hoverOn = function() {

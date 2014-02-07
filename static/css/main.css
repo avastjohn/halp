@@ -51,18 +51,18 @@ p {
     font-size: 15px;
     font-weight: bold;
     border-radius: 5px;
-    background-color: #FFA19F;
     padding: 8px;
 }
 .delete {
     float: right;
     margin-right: 11px;
+    background-color: #FFA19F;
 }
 .post-button {
-    margin-top: 20px;
     width: 250px;
     height: 20px;
     text-align: center;
+    background-color: #FF4040;
 }
 .new-post-form {
     width: 600px;
@@ -79,19 +79,25 @@ p {
     height: 45px;
     margin-top: 10px;
     margin-left: 10px;
+    margin-right: 20px;
     float: left;
 }
 #help-field {
     width: 300px;
 }
 #location-field {
-    width: 100px;
+    width: 150px;
 }
-label {
+.urgency-options {
+    width: 500px;
+    height: 100px;
+    margin-top: 100px;
+}
+.option {
+    width: 150px;
+    float: left;
     margin-left: 20px;
-    margin-top: 20px;
 }
-
 
 
 
