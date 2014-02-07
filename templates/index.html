@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 {% block body %}
 {% if posts %}
+<div id="posts">
 {% for post in posts %}
 <div class="post">
     <h2>{{post.title}}</h2>
-    <p>{{post.created_at}}</p>
+    <div class="time-and-delete">
+        <p class="time">{{post.created_at}}</p>
+        {% if post.user_id == current_user.id %}
+            <div class="delete-button">Nevermind :)</div>
+        {% endif %}
+    </div>
 </div>
 {% endfor %}
+</div>
 {% else %}
 No posts here!
 {% endif %}

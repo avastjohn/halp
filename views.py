@@ -32,6 +32,9 @@ def authenticate():
     if not user or not user.authenticate(password):
         return render_template("index.html", error="Incorrect email or password")
 
+    login_user(user)
+    return redirect(url_for("index"))
+
 # Adding markdown capability to the app
 Markdown(app)
 

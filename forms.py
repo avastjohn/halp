@@ -1,8 +1,8 @@
 from wtforms import Form, TextField, TextAreaField, PasswordField, validators, RadioField
 
 class LoginForm(Form):
-    email = TextField("Email", [validators.Required(), validators.Email()])
-    password = PasswordField("Password", [validators.Required()])
+    email = TextField("email", [validators.Required(), validators.Email()])
+    password = PasswordField("password", [validators.Required()])
 
 class NewPostForm(Form):
     title = TextField("title", [validators.Required()])
