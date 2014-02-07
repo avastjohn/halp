@@ -20,3 +20,7 @@ context.fill();
 context.fillStyle = "White";
 context.font = "55px Sans-Serif";
 context.fillText("HALP!", 50, 100);
+
+$(".delete-button").click(function() {
+    $( this ).parent().slideUp();
+});
