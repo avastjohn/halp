@@ -12,10 +12,16 @@ li {
     margin-top: 27px;
     margin-right: 50px;
 }
-.nav-link{
+.nav-link {
     text-decoration: none;
     color: white;
     font-family: sans-serif;
+}
+#halp-logo {
+    float: right;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-right: 10px;
 }
 h2 {
     font-size: 20px;
@@ -26,7 +32,7 @@ p {
 .post {
     height: 100px;
     width: 600px;
-    background: linear-gradient(to bottom, #00cc00, #269926);
+    background: linear-gradient(to bottom, #FF4040, #FF0000);
     border-radius: 10px;
     margin-bottom: 20px;
     margin-left: 20px;
