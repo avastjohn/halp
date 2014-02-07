@@ -46,17 +46,51 @@ p {
     width: 200px;
     float: left;
 }
-.delete-button {
-    float: right;
-    margin-right: 11px;
+.button {
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
     border-radius: 5px;
-    background-color: #FF6561;
+    background-color: #FFA19F;
     padding: 8px;
 }
-
+.delete {
+    float: right;
+    margin-right: 11px;
+}
+.post-button {
+    margin-top: 20px;
+    width: 250px;
+    height: 20px;
+    text-align: center;
+}
+.new-post-form {
+    width: 600px;
+    height: 300px;
+    padding: 20px;
+    margin-left: 20px;
+    margin-top: 35px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+}
+.text-field {
+    font-size: 16px;
+    padding-left: 6px;
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+}
+#help-field {
+    width: 300px;
+}
+#location-field {
+    width: 100px;
+}
+label {
+    margin-left: 20px;
+    margin-top: 20px;
+}
 
 
 

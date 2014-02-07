@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 
 {% block body %}
-<form method="post">
-    
-    <input type="text" name="title" placeholder="I need help with...."><br>
-    <input type="text" name="location" placeholder="Location"><br>
+<form class="new-post-form" method="post">
+    <input type="text" class="text-field" id="help-field" name="title" placeholder="I need help with....">
+    <input type="text" class="text-field" id="location-field" name="location" placeholder="Location">
     <label for="not-urgent">I need help but can continue working in the meantime</label>
-    <input type="radio" name="role" id="not-urgent" value="0" checked="checked"><br>
+    <input type="radio" name="role" id="not-urgent" value="0" checked="checked">
     <label for="urgent">I am unable to move forward until I have help</label>
-    <input type="radio" name="role" id="urgent" value="1"><br>
-    <button type="submit">I have already tried googling this and I still need help</button>
+    <input type="radio" name="role" id="urgent" value="1">
+    <div class="post-button button">I have already tried googling this</div>
 </form>
 {% endblock %}
