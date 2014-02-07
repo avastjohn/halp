@@ -24,3 +24,12 @@ context.fillText("HALP!", 50, 100);
 $(".delete-button").click(function() {
     $( this ).parent().slideUp();
 });
+
+var hoverOn = function() {
+    $(this).css("color", "#FFA19F");
+};
+var hoverOff = function() {
+    $(this).css("color", "white");
+};
+
+$(".nav-link").hover(hoverOn, hoverOff);
