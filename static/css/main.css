@@ -21,6 +21,7 @@ li {
     float: right;
     margin-top: 60px;
     margin-right: 10px;
+    cursor: pointer;
 }
 h2 {
     font-size: 20px;

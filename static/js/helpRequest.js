@@ -19,7 +19,9 @@ context.closePath();
 context.fill();
 context.fillStyle = "White";
 context.font = "55px Sans-Serif";
-context.fillText("HALP!", 50, 100);
+context.fillText("HALP!", 50, 90);
+context.font = "12px Sans-Serif";
+context.fillText("(Click here to request help)", 57, 110);
 
 $(".delete").click(function() {
     $( this ).parent().slideUp();
