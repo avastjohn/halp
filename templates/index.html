@@ -3,7 +3,7 @@
 {% if posts %}
 <div id="posts">
 {% for post in posts %}
-<div class="post">
+<div class="post" id="{{post.id}}">
     <h2>{{post.title}}</h2>
         <p class="time">{{post.created_at}}</p>
         {% if post.user_id == current_user.id %}
@@ -14,5 +14,5 @@
 </div>
 {% else %}
 No posts here!
-{% endif %}  
+{% endif %}
 {% endblock %}

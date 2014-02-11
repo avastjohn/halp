@@ -48,8 +48,11 @@ class Post(Base):
     urgency = Column(Integer, nullable=False)
     created_at = Column(DateTime, nullable=False, default=datetime.now)
     user_id = Column(Integer, ForeignKey("users.id"))
-
     user = relationship("User")
+
+    def nevermind(self):
+        session.delete(self)
+        session.commit()
 
 def register(email, password, role):
     user = User(email=email, password=password, role=role, salt="random")

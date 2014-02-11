@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, g, session, url_for, flash
+from flask import Flask, render_template, redirect, request, g, session, url_for, flash, jsonify
 from model import User, Post
 from flask.ext.login import LoginManager, login_required, login_user, current_user, logout_user
 from flaskext.markdown import Markdown
@@ -62,7 +62,6 @@ def index():
     posts = Post.query.all()
     return render_template("index.html", posts=posts)
 
-
 @app.route("/post/new")
 @login_required
 def new_post():
@@ -84,8 +83,18 @@ def create_post():
         return redirect(url_for("index"))
 
     else:
-        flash("Error, all fields are required")
+        flash("Error: all fields are required")
         return render_template("new_post.html")
+
+@app.route("/nevermind")
+@login_required
+def delete_post():
+    post_id = request.args.get("corgi")
+    post = Post.query.get(post_id)
+    if post.user_id==current_user.id:
+        post.nevermind()
+        return jsonify(success=True)
+    return jsonify(success="Nice try, smartass.")
 
 @app.route("/login")
 def login():
