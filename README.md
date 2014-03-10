@@ -17,6 +17,6 @@
 
 * Adding a help request or hitting nevermind button updates the db
 * Next steps: 
-* * make non-urgent requests yellow
-* * keep track of number of request hits on one topic/display that number/delete request only if all requesters hit nevermind button
-* * make requests responsive
+    * make non-urgent requests yellow
+    * keep track of number of request hits on one topic/display that number/delete request only if all requesters hit nevermind button
+    * make requests responsive
